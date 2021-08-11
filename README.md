@@ -5,3 +5,5 @@
 ### Utilizarei Ionic com Angular para o consumo da API 
 <img align = "center" height = "60" width = "60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-plain.svg"> <img align = "center" height = "120" width = "120" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original-wordmark.svg">
 
+Link da API -> https://github.com/GuilhermePontes1/Springboot_Marketplace-Backend
+
