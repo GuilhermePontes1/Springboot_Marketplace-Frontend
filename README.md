@@ -1,4 +1,4 @@
-##  <p align = center> Springboot Marketplace-Frontend </p> <p align = "center"> <img align = center src="https://user-images.githubusercontent.com/65747791/129110129-ef1a1300-6acf-48bf-b8c5-625126336a7d.png" height = "120" width="120"> </p>
+##  <p align = center> Springboot Marketplace (Front-end) </p> <p align = "center"> <img align = center src="https://user-images.githubusercontent.com/65747791/129110129-ef1a1300-6acf-48bf-b8c5-625126336a7d.png" height = "120" width="120"> </p>
 
  	  
 
