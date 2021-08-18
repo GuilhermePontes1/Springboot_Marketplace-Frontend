@@ -13,7 +13,10 @@
 |IONIC 3.19.0 |
 |CORDOVA 7.1.0| 
 
-### OBS: Para o projeto funcionar é necessário realizar o comando:  npm install -g ionic@3.19.0 cordova@7.1.0
+### OBS: Para o projeto funcionar é necessário realizar o comando:  
+~~~
+npm install -g ionic@3.19.0 cordova@7.1.0
+~~~
 
 Link da API -> https://github.com/GuilhermePontes1/Springboot_Marketplace-Backend
 
