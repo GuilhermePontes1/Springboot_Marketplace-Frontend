@@ -1,19 +1,16 @@
 page-home {
 
-h3 {
-    text-align: center;
-    font-size: 40px;
+    h3 {
+        text-align: center;
+        font-size: 30px;
+        font-family: 'Poppins', sans-serif;    
+    }
     
-}
-
-img {
-	position:absolute;
-		left:45%;
-		top:16%;
-		margin-left:-90px;
-		margin-top:-40px;
-        width: 60%;
-}
-
-
-}
+    .main-Homepage{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    
+    }

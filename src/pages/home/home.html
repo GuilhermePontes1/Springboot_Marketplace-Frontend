@@ -1,23 +1,17 @@
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <ion-content padding>
   <h3>Spring Marketplace</h3>
-  
-  <img src="assets/imgs/homepage1.png" alt="homepage1.png">
+  <div class="main-Homepage">
+    <div class="homepage">
+        <img src="assets/imgs/homepage1.png" alt="homepage1.png">
+      </div>
+  </div>
+ 
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+ 
   <br>
   <form >
     <ion-item>
@@ -30,7 +24,7 @@
     </ion-item>
 
     <ion-item>
-      <button ion-button block>Entrar</button>
+      <button ion-button block (click)="login()">Entrar</button>
     </ion-item>
     <ion-item>
       <button ion-button outline block>Registrar</button>
