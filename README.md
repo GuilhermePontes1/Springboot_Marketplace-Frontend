@@ -17,6 +17,7 @@
 ~~~
 npm install -g ionic@3.19.0 cordova@7.1.0
 ~~~
+detalhe, esse comando é utilizado depois de clonar
 
 Link da API -> https://github.com/GuilhermePontes1/Springboot_Marketplace-Backend
 
