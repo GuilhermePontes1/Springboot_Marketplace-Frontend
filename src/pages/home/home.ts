@@ -35,8 +35,8 @@ creds : CredenciaisDTO = {
     }
   login() {
     this.auth.authenticate(this.creds).subscribe(response => {
-      console.log(response.headers.get('Authorization'));
-      this.navCtrl.setRoot('CategoriasPage');
+      this.auth.sucessfulLogin(response.headers.get('Authorization')); // quando fizer o login tem que ta armazenado no localstorage o token
+      this.navCtrl.setRoot('CategoriasPage'); // seta o local para ondeo homepage deve encaminhar se o login for efetuado com sucesso
     },  error => {} )
     
   }
