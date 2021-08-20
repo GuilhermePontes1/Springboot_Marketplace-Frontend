@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CategoriaService } from '../services/domain/categoria.service';
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CategoriaService } from '../services/domain/categoria.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CategoriaService //então assim que iniciar a compilação do programa, ele irá chamar os metodos encadeados na CatetegoriaService
+    CategoriaService,   //então assim que iniciar a compilação do programa, ele irá chamar os metodos encadeados na CatetegoriaService                                   
+    AuthService
   ]
 })
 export class AppModule {}
