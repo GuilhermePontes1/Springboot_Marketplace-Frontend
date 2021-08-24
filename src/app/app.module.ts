@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { CategoriaService } from '../services/domain/categoria.service';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage_service';
+import { ClienteService } from '../services/domain/cliente.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { StorageService } from '../services/storage_service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CategoriaService,   //então assim que iniciar a compilação do programa, ele irá chamar os metodos encadeados na CatetegoriaService                                   
     AuthService,
-    StorageService
+    StorageService,
+    ClienteService
   ]
 })
 export class AppModule {}
