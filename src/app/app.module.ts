@@ -11,6 +11,8 @@ import { CategoriaService } from '../services/domain/categoria.service';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage_service';
 import { ClienteService } from '../services/domain/cliente.service';
+import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
+import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ClienteService } from '../services/domain/cliente.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CategoriaService,   //então assim que iniciar a compilação do programa, ele irá chamar os metodos encadeados na CatetegoriaService                                   
+    CategoriaService, //então assim que iniciar a compilação do programa, ele irá chamar os metodos encadeados na CatetegoriaService                                   
+    AuthInterceptorProvider,
+    ErrorInterceptorProvider,
     AuthService,
     StorageService,
     ClienteService

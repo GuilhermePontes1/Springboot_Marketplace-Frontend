@@ -22,7 +22,7 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    let localUser = this.storage.getLocalUser()// se exister localuser, conseguimos localizar
+    let localUser = this.storage.getLocalUser()// se exister localuser, conseguimos localizar e inicar a classe
     if (localUser && localUser.email) {
       this.clienteService.findByEmail(localUser.email).subscribe(response => {this.cliente = response; this.getImageIfExists}, 
         error => {}) //em seguida buscar imagem do s3

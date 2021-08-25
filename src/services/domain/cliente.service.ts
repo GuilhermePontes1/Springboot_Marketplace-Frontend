@@ -11,13 +11,10 @@ export class ClienteService {
 
     }
 
-    findByEmail(email : string) : Observable<ClienteDTO> {
-
-        let token = this.storage.getLocalUser().token; // pega o token do storage
-        let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token}); // esse é o cabeçalho que vai ser enviado
-        //soluçoes temporárias
-                                                                                         
-    return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?value=${email}`, {'headers': authHeader}) // com esse macete passa o cabeçalho para descriação {'headers' : authHeader}                                                                             
+    findByEmail(email : string) : Observable<ClienteDTO> {                                                                               
+    
+        return this.http.get<ClienteDTO>(`${API_CONFIG.baseUrl}/clientes/email?value=${email}`); // com esse macete passa o cabeçalho para descriação {'headers' : authHeader}                                                                             
+   
     }
     getImageFromBucket(id : string) : Observable<any> { // any casa com todo mundo
         let url = `${API_CONFIG.bucketBaseUrl}/cp${id}.jpg`
