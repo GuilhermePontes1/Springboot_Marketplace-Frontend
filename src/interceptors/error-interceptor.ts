@@ -7,11 +7,16 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
+import { StorageService } from '../services/storage_service';
 
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
  
+    constructor(public storage : StorageService) {
+
+    }
+
     intercept( request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).catch((error, caught) => {  
      
@@ -29,9 +34,22 @@ export class ErrorInterceptor implements HttpInterceptor {
 
      console.log(errorObj)
 
+     switch(errorObj.status) { // feito parra lidar com cada tipo de erro
+       case 403:
+         this.handle403()
+         break;
+     }
+
         return Observable.throw(error)}) as any;
     
   }
+
+  handle403(){
+    this.storage.setLocalUser(null); // Se cair em error 403, ele limpa o localUser
+
+  }
+
+
 }
  
   export const ErrorInterceptorProvider = {

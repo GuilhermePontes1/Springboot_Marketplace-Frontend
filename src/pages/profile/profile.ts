@@ -25,10 +25,17 @@ export class ProfilePage {
     let localUser = this.storage.getLocalUser()// se exister localuser, conseguimos localizar e inicar a classe
     if (localUser && localUser.email) {
       this.clienteService.findByEmail(localUser.email).subscribe(response => {this.cliente = response; this.getImageIfExists}, 
-        error => {}) //em seguida buscar imagem do s3
+        error => {
+          if(error.status == 403) {
+            this.navCtrl.setRoot('HomePage')
+          }
+
+        }) //em seguida buscar imagem do s3
        
     }
- 
+    else {
+      this.navCtrl.setRoot('HomePage')
+    }
   }
   getImageIfExists() {
     this.clienteService.getImageFromBucket(this.cliente.id)
@@ -38,3 +45,4 @@ export class ProfilePage {
     error => {});
   }
 }
+
