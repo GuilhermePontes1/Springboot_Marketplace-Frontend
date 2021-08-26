@@ -19,6 +19,10 @@ export class AuthService {
         //"observe" é um terceiro argumento para pegar o header da resposta, é text pois o endpoint do login retorna resposta em texto, para o framework não tentar fazer um "Parse" no Json 
         return this.http.post(`${API_CONFIG.baseUrl}/login`, creds, {observe: 'response', responseType: 'text'});
     }
+    refreshToken() {
+        // metodo para o usuário não ficar o tempo todo colocando senha, basicamente ele faz o refresh token, ou seja recupera o token, nesse caso o token é de 24h
+        return this.http.post(`${API_CONFIG.baseUrl}/auth/refresh_token`, {}, {observe: 'response', responseType: 'text'});
+    }
 
     sucessfulLogin(authorizationValue : string) {
         let tok = authorizationValue.substring(7) // recorta o token para pegar a partir do 7º caracter, para não pegar a palavra berer.
