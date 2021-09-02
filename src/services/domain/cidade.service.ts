@@ -6,7 +6,7 @@ import { CidadeDTO } from "../../models/cidade.dto";
 //para a classe ser injetável 
 @Injectable()
 export class CidadeService {
-
+ 
     constructor(public http: HttpClient) {
 
     }
