@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutoDTO } from '../../models/produto.dto';
+import { ProdutoService } from '../../services/domain/produto.service';
 
 
 @IonicPage()
@@ -14,26 +15,17 @@ export class ProdutosPage {
 
   items : ProdutoDTO[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public produtoService: ProdutoService) {
 
   }
 
   ionViewDidLoad() {
-    this.items = [
-      {
-        id: '1',
-        nome: 'Mouse',
-        preco: 80.99
-      },
-      {
-      
-      id: '2',
-      nome: 'Teclado',
-      preco: 100.00
-      
-      }
-    ]
-    
-  }
+    let categoria_id = this.navParams.get('categoria_id') // pego o valor que foi declarado como parametro na pagina de categoria
+    this.produtoService.findByCategoria(categoria_id).subscribe(reponse =>{this.items = reponse['content']}
+    ,error => {}) // aqui pegamos a lista de produtos da categoria pedida
 
+  }
 }

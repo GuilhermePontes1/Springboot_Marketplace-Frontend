@@ -34,7 +34,8 @@ export class CategoriasPage {
     error => {});
     
   }
-  showProdutos() {
-    this.navCtrl.push('ProdutosPage')
+  showProdutos(categoria_id : string) { // recebe categoria id 
+    this.navCtrl.push('ProdutosPage' , {categoria_id : categoria_id})
+    // então passamos parâmetros de uma pagina pra outra colocando os dados em forma de objeto
   }
 }
