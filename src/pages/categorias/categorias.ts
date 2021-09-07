@@ -4,12 +4,7 @@ import { API_CONFIG } from '../../config/api.config';
 import { CategoriaDTO } from '../../models/categoria.dto';
 import { CategoriaService } from '../../services/domain/categoria.service';
 
-/**
- * Generated class for the CategoriasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -35,7 +30,7 @@ export class CategoriasPage {
     
   }
   showProdutos(categoria_id : string) { // recebe categoria id 
-    this.navCtrl.push('ProdutosPage' , {categoria_id : categoria_id})
+    this.navCtrl.push('ProdutosPage', {categoria_id : categoria_id})
     // então passamos parâmetros de uma pagina pra outra colocando os dados em forma de objeto
   }
 }
