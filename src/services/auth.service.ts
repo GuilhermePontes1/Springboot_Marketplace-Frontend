@@ -6,6 +6,7 @@ import { STORAGE_KEYS } from "../config/storage_keys.config";
 import { Cart } from "../models/cart";
 import { CredenciaisDTO } from "../models/credenciais.dto";
 import { localUser } from "../models/local_user";
+import { CartService } from "./domain/cart.service";
 import { StorageService } from "./storage_service";
 
 
@@ -14,7 +15,10 @@ export class AuthService {
 
     jwtHelper: JwtHelper = new JwtHelper();
 
-    constructor(public http: HttpClient, public storage : StorageService) {
+    constructor(
+        public http: HttpClient, 
+        public storage : StorageService,
+        public cartService : CartService) {
     }
 
     authenticate(creds: CredenciaisDTO) {
@@ -33,7 +37,8 @@ export class AuthService {
             email : this.jwtHelper.decodeToken(tok).sub
         };
 
-        this.storage.setLocalUser(user) // guardamos localstorage
+        this.storage.setLocalUser(user) // guardamos localstorage 
+        this.cartService.createOrClearCart // Aqui limpa o carrinho de comprras em caso de login
     }
     
     logout() { 
