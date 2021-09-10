@@ -2,6 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { JwtHelper } from "angular2-jwt";
 import { API_CONFIG } from "../config/api.config";
+import { STORAGE_KEYS } from "../config/storage_keys.config";
+import { Cart } from "../models/cart";
 import { CredenciaisDTO } from "../models/credenciais.dto";
 import { localUser } from "../models/local_user";
 import { StorageService } from "./storage_service";
@@ -37,4 +39,24 @@ export class AuthService {
     logout() { 
         this.storage.setLocalUser(null) // remove o usuário do localstorage
     }
+
+    getCart() : Cart {
+        let str = localStorage.getItem(STORAGE_KEYS.cart);
+        if (str != null) {
+            return JSON.parse(str);
+        }
+        else {
+            return null;
+        }
+    }
+
+    setCart(obj : Cart) {
+        if (obj != null) {
+            localStorage.setItem(STORAGE_KEYS.cart, JSON.stringify(obj));
+        } 
+        else {
+            localStorage.removeItem(STORAGE_KEYS.cart);
+        }
+    }
+
 }
