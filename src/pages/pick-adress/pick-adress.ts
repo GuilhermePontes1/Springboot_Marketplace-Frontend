@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EnderecoDTO } from '../../models/endereco.dto';
+import { ClienteService } from '../../services/domain/cliente.service';
+import { StorageService } from '../../services/storage_service';
 
 
 @IonicPage()
@@ -12,44 +14,30 @@ export class PickAdressPage {
 
   items: EnderecoDTO[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    public storage:StorageService,
+    public clienteService: ClienteService ) {
   }
 
   ionViewDidLoad() {
-    this.items = [
-      {
-        id: "1",
-        logradouro: "Caminho 1",
-        numero: "300",
-        complemento: "Apto 200",
-        bairro: "Mussurunga",
-        cep: "48293822",
-        cidade: {
-          id: "1",
-          nome: "Salvador",
-          estado: {
-            id: "1",
-            nome: "Bahia"
+    let localUser = this.storage.getLocalUser()// se exister localuser, conseguimos localizar e inicar a classe
+    if (localUser && localUser.email) {
+      this.clienteService.findByEmail(localUser.email)
+      .subscribe(response => {this.items = response['enderecos']; 
+    }, 
+        error => {
+          if(error.status == 403) {
+            this.navCtrl.setRoot('HomePage')
           }
-        }
-      },
-      {
-        id: "2",
-        logradouro: "Rua Alexandre Toledo da Silva",
-        numero: "405",
-        complemento: null,
-        bairro: "Centro",
-        cep: "88933822",
-        cidade: {
-          id: "3",
-          nome: "São Paulo",
-          estado: {
-            id: "2",
-            nome: "São Paulo"
-          }
-        }
-      }
-    ];
+
+        }) 
+       
+    }
+    else {
+      this.navCtrl.setRoot('HomePage')
+    }
   }
 
 }

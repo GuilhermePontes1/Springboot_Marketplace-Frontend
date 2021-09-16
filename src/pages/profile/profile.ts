@@ -24,7 +24,7 @@ export class ProfilePage {
   ionViewDidLoad() {
     let localUser = this.storage.getLocalUser()// se exister localuser, conseguimos localizar e inicar a classe
     if (localUser && localUser.email) {
-      this.clienteService.findByEmail(localUser.email).subscribe(response => {this.cliente = response; this.getImageIfExists}, 
+      this.clienteService.findByEmail(localUser.email).subscribe(response => {this.cliente = response as ClienteDTO; this.getImageIfExists}, 
         error => {
           if(error.status == 403) {
             this.navCtrl.setRoot('HomePage')
